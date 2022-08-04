@@ -9,9 +9,6 @@ export const fetchWeatherData = async (
     url = `${baseUrl}/weather?lat=${city.lat}&lon=${city.lng}&appid=${process.env.REACT_APP_WEATHER_API_KEY}`;
   }
   let currentWeather = await (await fetch(url)).json();
-  localStorage.setItem("CURRENT_WEATHER", JSON.stringify(currentWeather));
-  // console.log("currentWeather", currentWeather);
-  // save into local storage
   return currentWeather;
 };
 
@@ -29,7 +26,5 @@ export const fetchExtendedForecastData = async (
     "EXTENDED_FORECAST_WEATHER",
     JSON.stringify(extendedForecastWeather)
   );
-  // console.log("extendedForecastWeather", extendedForecastWeather);
-  // save into local storage
   return extendedForecastWeather;
 };

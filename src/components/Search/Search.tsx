@@ -29,7 +29,6 @@ const Search: React.FC = () => {
   useEffect(() => {
     if (!searchTerm) {
       dispatch(fetchWeather("lisbon"));
-      // localStorage.setItem("WEATHER_CITY", "lisbon");
       setShowSuggestions(false);
       return;
     }
@@ -62,7 +61,6 @@ const Search: React.FC = () => {
         placeholder="Search for location"
       />
 
-      {/* the code in this event listener put in default case*/}
       <LocationButton
         onClick={() => {
           if (navigator.geolocation) {
@@ -74,7 +72,6 @@ const Search: React.FC = () => {
       >
         <LocationIcon />
       </LocationButton>
-      {/* loop over suggestions and click on one suggestion and make API request to weather API */}
       {showSuggestions && (
         <SearchResult ref={suggestionRef}>
           {suggestions?.slice(0, 6)?.map((s, i) => (
